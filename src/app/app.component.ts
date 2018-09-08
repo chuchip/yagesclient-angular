@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'yagesclient';
+ 
+  title="Consulta Historico Ventas";
+  ejercicio=2018;
+  ejercicioActual:number;
+
+  buscar(): void {
+    this.ejercicioActual=this.ejercicio;
+  }
 }
