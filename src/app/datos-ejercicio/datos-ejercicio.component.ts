@@ -1,7 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { VentasMes } from '../VentasMes';
 import { VENTASMES } from '../mock-ventasMes';
+
 
 @Component({
   selector: 'app-datos-ejercicio',
@@ -14,7 +15,8 @@ export class DatosEjercicioComponent implements OnInit {
   year:number=0;
   month:number=0;
 
-  constructor( private route: ActivatedRoute) { 
+  constructor( private route: ActivatedRoute,
+    private router: Router) { 
    
   }
 
