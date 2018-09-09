@@ -6,7 +6,7 @@ import {DatosEjercicioComponent} from './datos-ejercicio/datos-ejercicio.compone
 import {DatosMesComponent} from './datos-mes/datos-mes.component'
 
 const routes: Routes = [    
-  {path: ':year', component: DatosEjercicioComponent }
+  {path: ':year', component: DatosEjercicioComponent },
   {path: ':year/:month', component: DatosEjercicioComponent }
 ];
 @NgModule({
