@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
+import {AppComponent} from '../app.component'
 import { VentasMes } from '../VentasMes';
 import { VENTASMES } from '../mock-ventasMes';
 
@@ -11,18 +12,42 @@ import { VENTASMES } from '../mock-ventasMes';
 })
 
 export class DatosEjercicioComponent implements OnInit {
-  @Input() ejercicio: number;
+  
   year:number=0;
   month:number=0;
-
+  ventasAno:Array<VentasMes>;
+  
+  @ViewChildren('mes') vc;
+  
+   ngAfterViewInit() {  
+     // console.log("Despues inicializar vista ejercicio") ;        
+     //   this.vc.first.nativeElement.focus();
+    }
   constructor( private route: ActivatedRoute,
     private router: Router) { 
    
   }
 
   ngOnInit() {   
+    
+
     this.year = +this.route.snapshot.paramMap.get('year');
+    if (!this.year)
+    {
+      console.log("año no valido");
+    }
     this.month = +this.route.snapshot.paramMap.get('month');
+    this.ventasAno= this.getVentasAno();
   }
+
+  getVentasAno()
+  {
+    return VENTASMES;
+  }
+  reset()
+  {
+    console.log('reset');
+    this.router.navigate(['']); 
+   }
 
 }

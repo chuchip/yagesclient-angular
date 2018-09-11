@@ -1,10 +1,12 @@
-<!--  <ul>
-    <li *ngFor="let datosMes of ventasMes">
-      {{datosMes.mes}}
-    </li>
-  </ul>
--->
+
+
 <p>
  ejercicio {{ year }}
  mes: {{month}}
 </p>
+<ul>
+  <li *ngFor="let datosMes of ventasAno">
+    {{ datosMes.mes}}
+  </li>
+</ul>
+<button (click)=reset()>Reset</button>
