@@ -1,12 +1,13 @@
 <h4>{{ title }}</h4>
 <form #formEjercicio="ngForm" (ngSubmit)="buscar()">
-Introduzca Año <input name="year" [(ngModel)]="ejercicio"  #year="ngModel" required pattern="[0-9]+" style="width: 5em;" autofocus/>  
+<label value="Introduzca año">Introduzca Año</label>
+ <input #ejerc name="year" [(ngModel)]="ejercicio"  #year="ngModel" required pattern="[0-9]+" style="width: 5em;" />  
 <span *ngIf="year.touched && !year.valid" style="background-color: red; width: 250px">
   Ejercicio No es correcto
 </span>
-   <div><button  [disabled]="!formEjercicio.form.valid">Consultar</button></div>
+   <div><button >Consultar</button></div>
 </form>
   <hr>
   
-<router-outlet (desde_el_hijo)="focoEjercicio()" ></router-outlet> 
+<router-outlet ></router-outlet> 
   

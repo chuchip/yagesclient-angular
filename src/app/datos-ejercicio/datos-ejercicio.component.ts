@@ -34,7 +34,8 @@ export class DatosEjercicioComponent implements OnInit {
     this.year = +this.route.snapshot.paramMap.get('year');
     if (!this.year)
     {
-      console.log("año no valido");
+      this.router.navigate(['']);
+      return;
     }
     this.month = +this.route.snapshot.paramMap.get('month');
     this.ventasAno= this.getVentasAno();
