@@ -4,9 +4,30 @@
  ejercicio {{ year }}
  mes: {{month}}
 </p>
-<ul>
-  <li *ngFor="let datosMes of ventasAno">
-    {{ datosMes.mes}}
-  </li>
-</ul>
+<table border="1">
+  <tr>
+  <th>Mes</th>
+  <th>Kilos Act.</th>
+  <th>Importe Act.</th>
+  <th>Kilos Ant.</th>
+  <th>Importe Ant.</th>
+  <th>Ganancia Ant.</th>
+  <th>Ganancia Act.</th>
+  <th>Dif. Kilos</th>
+  <th>Dif. Ganancia</th>
+  </tr>
+
+  <tr *ngFor="let datosMes of ventasAno" style="text-align: right ">
+    <td style="width: 50px"><input value="{{ datosMes.mes}}" readonly style="width: 40px" /></td>
+    <td >{{ datosMes.kilosVentaAct| number: '1.2-2'}}</td>
+    <td>{{ datosMes.impVentaAct| number: '1.2-2'}}</td>
+    <td>{{ datosMes.kilosVentaAnt| number: '1.2-2'}}</td>
+    <td>{{ datosMes.impVentaAnt| number: '1.2-2' }}</td>
+    <td>{{ datosMes.gananAct | number: '1.2-2'}}</td>
+    <td>{{ datosMes.gananAnt | number: '1.2-2'}}</td>
+    <td>{{ datosMes.kilosVentaAct - datosMes.kilosVentaAnt | number: '1.2-2' }} </td>
+    <td>{{ datosMes.gananAct - datosMes.gananAnt | number: '1.2-2'}}</td>
+  </tr>
+</table>
 <button (click)=reset()>Reset</button>
+<app-datos-mes></app-datos-mes>

@@ -1,13 +1,12 @@
 <h4>{{ title }}</h4>
 <form #formEjercicio="ngForm" (ngSubmit)="buscar()">
-<label value="Introduzca año">Introduzca Año</label>
- <input #ejerc name="year" [(ngModel)]="ejercicio"  #year="ngModel" required pattern="[0-9]+" style="width: 5em;" />  
-<span *ngIf="year.touched && !year.valid" style="background-color: red; width: 250px">
-  Ejercicio No es correcto
+<label value="Introduzca año">Introduzca Año </label>
+ <input #ejerc name="year" [(ngModel)]="ejercicio"  #year="ngModel" required pattern="[0-9]+" style="width: 5em;text-align: right" />&nbsp;  
+<span *ngIf="msgError !=''"  style="background-color: red; width: 250px">
+  {{msgError}}
 </span>
    <div><button >Consultar</button></div>
 </form>
   <hr>
-  
+
 <router-outlet ></router-outlet> 
-  

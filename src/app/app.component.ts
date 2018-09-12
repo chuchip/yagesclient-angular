@@ -12,11 +12,15 @@ import { isNumber } from 'util';
 export class AppComponent  {
   @ViewChild("ejerc") nameField: ElementRef;
 
+  msgError="";
   title="Consulta Historico Ventas";
   ejercicio=2018;
   ejercicioActual:number;
   focus='uno';
-  
+  constructor( private router: Router, private renderer: Renderer) { 
+   
+  }
+
   ngAfterViewInit() {    
     
    }
@@ -29,20 +33,16 @@ export class AppComponent  {
      setTimeout(()=> {this.nameField.nativeElement.focus()});
    }
   buscar(): void {
-//    console.log("Ejercicio: "+this.ejercicio);
-    var num:number=this.ejercicio;
-//    console.log("Ejercicio: "+num);
-    if (!isNumber(num))
- {
-//   console.log("Ejercicio no es valido");
-   this.ponFoco();
-   return;
- }
+    let num:number=+this.ejercicio;
+    if (!num)
+    {
+      this.msgError="Ejercicio no ES valido";
+      this.ponFoco();
+      return;
+    }
+    this.msgError="";
     this.ejercicioActual=this.ejercicio;
     this.router.navigate([''+this.ejercicioActual])
-  }
-  constructor( private router: Router, private renderer: Renderer) { 
-   
   }
  
 }
