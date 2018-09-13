@@ -17,7 +17,7 @@
   <th>Dif. Ganancia</th>
   </tr>
 
-  <tr *ngFor="let datosMes of ventasAno" style="text-align: right ">
+  <tr *ngFor="let datosMes of ventasMes" style="text-align: right ">
     <td style="width: 50px"><input value="{{ datosMes.mes}}" readonly style="width: 40px" /></td>
     <td >{{ datosMes.kilosVentaAct| number: '1.2-2'}}</td>
     <td>{{ datosMes.impVentaAct| number: '1.2-2'}}</td>
