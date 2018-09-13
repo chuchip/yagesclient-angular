@@ -47,8 +47,7 @@ export class DatosEjercicioComponent implements OnInit {
   }
 
   reset()
-  {
-    console.log("VentasAno: "+this.ventasAno[0] );
+  {    
     this.router.navigate(['']); 
    }
 
