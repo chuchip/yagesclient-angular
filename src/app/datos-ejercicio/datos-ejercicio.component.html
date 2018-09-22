@@ -1,10 +1,10 @@
+<ngb-alert type="warning" (close)="resetError()" *ngIf="!ventasMes && sinDatos" >  
+  Error: <span style="font-weight: bold"> {{mensajeErr}} </span>
+</ngb-alert>
 
-
-<p>
- ejercicio {{ year }}
- mes: {{month}}
-</p>
-<table border="1">
+<div *ngIf="ventasMes" class="container">
+  <div class="row justify-content-md-center">
+<table class="table table-hover table-sm  table-striped">
   <tr>
   <th>Mes</th>
   <th>Kilos Act.</th>
@@ -16,9 +16,8 @@
   <th>Dif. Kilos</th>
   <th>Dif. Ganancia</th>
   </tr>
-
-  <tr *ngFor="let datosMes of ventasMes" style="text-align: right ">
-    <td style="width: 50px"><input value="{{ datosMes.mes}}" readonly style="width: 40px" /></td>
+  <tr (mouseenter)= "actualizaMes(datosMes.mes)"  tabindex="{{datosMes.mes}}" *ngFor="let datosMes of ventasMes" style="text-align: right " >
+    <td style="width: 50px"><input value="{{ datosMes.mes}}" (focus) = "actualizaMes(datosMes.mes)" readonly style="width: 40px" /></td>
     <td >{{ datosMes.kilosVentaAct| number: '1.2-2'}}</td>
     <td>{{ datosMes.impVentaAct| number: '1.2-2'}}</td>
     <td>{{ datosMes.kilosVentaAnt| number: '1.2-2'}}</td>
@@ -29,5 +28,4 @@
     <td>{{ datosMes.gananAct - datosMes.gananAnt | number: '1.2-2'}}</td>
   </tr>
 </table>
-<button (click)=reset()>Reset</button>
-<app-datos-mes></app-datos-mes>
+<app-datos-mes [mes]=month [year]=year [ventasSemana]=ventasSemana></app-datos-mes>

@@ -1,0 +1,12 @@
+
+.cabecera
+{
+    background-color: lightslategray;
+    text-align: center;
+    padding:5px;
+}
+.formulario
+{
+    margin:10px;
+    border:  1px solid gray;   
+}

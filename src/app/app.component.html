@@ -1,12 +1,25 @@
-<h4>{{ title }}</h4>
-<form #formEjercicio="ngForm" (ngSubmit)="buscar()">
-<label value="Introduzca año">Introduzca Año </label>
- <input #ejerc name="year" [(ngModel)]="ejercicio"  #year="ngModel" required pattern="[0-9]+" style="width: 5em;text-align: right" />&nbsp;  
-<span *ngIf="msgError !=''"  style="background-color: red; width: 250px">
-  {{msgError}}
-</span>
-   <div><button >Consultar</button></div>
-</form>
-  <hr>
-
-<router-outlet ></router-outlet> 
+<div class="container">
+    <div class="row justify-content-center">
+      <div  class="col-8 text-center pagination-centered cabecera rounded ">
+          <h4 >{{ title }} <input class="btn btn-success" type="reset" value="Reset" (click)="reset()"></h4>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-6 text-center pagination-centered">  
+    <div class="formulario rounded" >    
+      <form #formEjercicio="ngForm" (ngSubmit)="buscar()">
+        <span style="padding-right: 10px;" ><label value="Introduzca año">Introduzca Año: </label></span>
+        <input #ejerc name="year" [(ngModel)]="ejercicio" #year="ngModel" required pattern="[0-9]+"
+           style="width: 60px;text-align: right" />&nbsp;
+        <ngb-alert type="warning" [dismissible]="false" *ngIf="msgError !=''">
+          {{msgError}}
+        </ngb-alert>        
+        <button style="padding-left:5px; margin-left: 10px;" type="submit" class="btn btn-primary">Consultar</button>
+        
+      </form>
+      
+    </div> 
+    </div> 
+  </div>
+</div>
+ <router-outlet></router-outlet>

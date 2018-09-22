@@ -1,3 +1,30 @@
-<p>
-  datos-mes works!
-</p>
+<div *ngIf="ventasSemana" class="container">
+  <div class="row justify-content-md-center table-sm">
+    <table class="table table-striped table-sm">
+      <tr style="text-align: center ">
+        <th>De</th>
+        <th>A</th>
+        <th>Kilos</th>
+        <th>Importe</th>
+        <th>Ganancia</th>
+        <th>Del</th>
+        <th>Al</th>
+        <th>Kg.Ant.</th>
+        <th>Imp.Ant.</th>
+        <th>Gan.Ant.</th>
+      </tr>
+      <tr *ngFor="let datosSemana of ventasSemana" style="text-align: right ">
+        <td> {{ datosSemana.fechaInicioAct | date: 'shortDate'}} </td>
+        <td>{{ datosSemana.fechaFinalAct  | date: 'shortDate' }}</td>
+        <td>{{ datosSemana.kilosVentaAct| number: '1.2-2'}}</td>
+        <td>{{ datosSemana.impVentaAct| number: '1.2-2'}}</td>
+        <td>{{ datosSemana.impGanaAct| number: '1.2-2' }}</td>
+        <td> {{ datosSemana.fechaInicioAnt | date: 'shortDate'}} </td>
+        <td>{{ datosSemana.fechaFinalAnt | date: 'shortDate' }}</td>
+        <td>{{ datosSemana.kilosVentaAnt| number: '1.2-2'}}</td>
+        <td>{{ datosSemana.impVentaAnt| number: '1.2-2'}}</td>
+        <td>{{ datosSemana.impGanaAnt| number: '1.2-2' }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
