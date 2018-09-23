@@ -5,6 +5,7 @@
 <div *ngIf="ventasMes" class="container">
   <div class="row justify-content-md-center">
 <table class="table table-hover table-sm  table-striped">
+<thead>
   <tr>
   <th>Mes</th>
   <th>Kilos Act.</th>
@@ -16,6 +17,8 @@
   <th>Dif. Kilos</th>
   <th>Dif. Ganancia</th>
   </tr>
+</thead>
+    <tbody>
   <tr (mouseenter)= "actualizaMes(datosMes.mes)"  tabindex="{{datosMes.mes}}" *ngFor="let datosMes of ventasMes" style="text-align: right " >
     <td style="width: 50px"><input value="{{ datosMes.mes}}" (focus) = "actualizaMes(datosMes.mes)" readonly style="width: 40px" /></td>
     <td >{{ datosMes.kilosVentaAct| number: '1.2-2'}}</td>
@@ -27,5 +30,6 @@
     <td>{{ datosMes.kilosVentaAct - datosMes.kilosVentaAnt | number: '1.2-2' }} </td>
     <td>{{ datosMes.gananAct - datosMes.gananAnt | number: '1.2-2'}}</td>
   </tr>
+  </tbody>
 </table>
 <app-datos-mes [mes]=month [year]=year [ventasSemana]=ventasSemana></app-datos-mes>

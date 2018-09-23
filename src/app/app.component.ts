@@ -44,7 +44,7 @@ export class AppComponent  {
     this.msgError="";
     this.ejercicioActual=this.ejercicio;
         
-    this.router.navigate(['',(this.ejercicioActual]);
+    this.router.navigate(['',this.ejercicioActual]);
     
   }
   reset()
